@@ -9,13 +9,13 @@ package com.app.checkwriter;
 import java.util.Scanner;
 
 public class CheckWriterApplication {
-		@SuppressWarnings("resource")
-		public static void main(final String[] args) {
-			EnglishCheckWriter checkWriter = new EnglishCheckWriter();
-			Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter Number :");
-            double number = scanner.nextDouble();
-			String valueInWords =  checkWriter.processNumber(number);
-			System.out.println("English Equivalent : "+valueInWords);
-			}
+    @SuppressWarnings("resource")
+    public static void main(final String[] args) {
+        EnglishCheckWriter checkWriter = new EnglishCheckWriter();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Number :");
+        double number = scanner.nextDouble();
+        String valueInWords = checkWriter.processNumber(number);
+        System.out.println("English Equivalent : " + valueInWords);
+    }
 }
