@@ -9,26 +9,26 @@ package com.app.checkwriter;
 
 public class CheckWriterHelper {
 
-	/**
-	 * Helper method to Concatenate decimal number with the fractional Part
-	 * @param beforeDecimal,fractionalPart
-	 * @return English Equivalent 
-	 */
-	
+    /**
+     * Helper method to Concatenate decimal number with the fractional Part
+     * @param beforeDecimal,fractionalPart
+     * @return English Equivalent 
+     */
+
     String concatanateFractions(String beforeDecimal, int fractionalPart) {
-    		if(fractionalPart>0){
-				return beforeDecimal+" "+ Constants.AND +" "+fractionalPart+Constants.DIVIDE_BY_HUNDRED;
-			}
-			else return beforeDecimal + " "+Constants.ONLY;
-		}
-    
-	
-	/**
-	 * Helper method to convert number to word.
-	 * @param number to be converted to its English Equivalent
-	 * @return English Equivalent 
-	 */
-    
+        if(fractionalPart>0){
+            return beforeDecimal+" "+ Constants.AND +" "+fractionalPart+Constants.DIVIDE_BY_HUNDRED;
+        }
+        else return beforeDecimal + " "+Constants.ONLY;
+    }
+
+
+    /**
+     * Helper method to convert number to word.
+     * @param number to be converted to its English Equivalent
+     * @return English Equivalent 
+     */
+
     String convertNumberToWords(int num) {
         String result = new String();
         if (num < 10) result = Constants.NUMBERS_BELOW_TEN[num];
@@ -40,6 +40,6 @@ public class CheckWriterHelper {
         else result = convertNumberToWords(num/1000000000) + " "+  Constants.BILLION   + " "+  convertNumberToWords(num % 1000000000);
         return result.trim();
     }
-    
-	
+
+
 }

@@ -37,20 +37,27 @@ public class EnglishCheckWriter implements CheckWriter {
 
     @Override
     public String processNumber(double number) {
-        String finalWord;
+        String finalWord = null;
         String integerInWords;
         CheckWriterHelper txtHelper = new CheckWriterHelper();
         String roundedVal = new DecimalFormat(".##").format(number);
         String[] arr = roundedVal.split(Constants.SPLIT_DELIMETER);
-        int integerPart = Integer.parseInt(arr[0]);
-        int decimalPart = Integer.parseInt(arr[1]);
-        if (integerPart > 0) {
-            integerInWords = numberToWords(integerPart);
-            finalWord = txtHelper.concatanateFractions(integerInWords, decimalPart);
-        } else {
-            finalWord = Constants.INPUT_POSITIVE_NUMBERS;
+        try{
+            int integerPart = Integer.parseInt(arr[0]);
+            int decimalPart = Integer.parseInt(arr[1]);
+            if (integerPart > 0) {
+                integerInWords = numberToWords(integerPart);
+                finalWord = txtHelper.concatanateFractions(integerInWords, decimalPart);
+            } else {
+                finalWord = Constants.INPUT_POSITIVE_NUMBERS;
+            }
+        }catch(NumberFormatException e){
+            return finalWord = Constants.OUT_OF_RANGE;    
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
         return finalWord;
+
 
     }
 
